@@ -1,0 +1,19 @@
+//
+//  PacketTunnel-iOS.xcconfig
+//  Surf
+//
+//  Created by yarshure on 16/1/12.
+//  Copyright © 2016年 yarshure. All rights reserved.
+//
+FRAMEWORK_SEARCH_PATHS = $(inherited) 
+HEADER_SEARCH_PATHS = $(inherited)    "$(SRCROOT)/../src/badvpn"  
+USER_HEADER_SEARCH_PATHS = $(inherited) "$(SRCROOT)/../src/src/include/"** "$(SRCROOT)/../src/custom/"
+///*
+//OTHER_CFLAGS = $(inherited) -isystem
+//OTHER_LDFLAGS = $(inherited) -lsodium
+//-mbedcrypto//lcrypto // - //mbedcrypto
+//LIBRARY_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)"
+//SSL_LIB_DEFINE =    TCP_MSS＝1460
+//USE_CRYPTO_MBEDTLS=1
+//USE_CRYPTO_OPENSSL USE_CRYPTO_MBEDTLS
+//USE_CRYPTO_MBEDTLS=1
