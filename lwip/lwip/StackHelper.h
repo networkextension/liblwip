@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "ipaddr.h"
-#import "lwip/tcp.h"
+#import <lwip/tcp.h>
 #import  <Foundation/Foundation.h>
 #define BADDR_TYPE_NONE 0
 #define BADDR_TYPE_IPV4 1
@@ -64,7 +64,34 @@ typedef struct {
 void logLWIPParams();
 void init_lwip();
 
-@protocol TCPCientDelegate ;
+
+typedef  struct netif  *SFNetIF;
+
+typedef  struct pbuf  *SFPbuf;
+typedef  struct tcp_pcb  *SFPcb;
+typedef  struct udp_pcb  *SFUPcb;
+typedef  struct ip_pcb  SFIP;
+
+@protocol TCPCientDelegate <NSObject>
+
+
+-(void)client_sent_func:(struct tcp_pcb*)pcb;
+-(void)client_handle_freed_client:(struct tcp_pcb*)pcb;
+-(void)client_free_client:(struct tcp_pcb*)pcb;
+-(void)incomingData:(NSData*)d len:(NSInteger)len pcb:(struct tcp_pcb*)pcb;
+-(void)didSendBufferLen:(NSInteger)buf_used pcb:(struct tcp_pcb*)pcb;
+@end
+
+@protocol TCPStackDelegate <NSObject>
+
+-(void)lwipInitFinish;
+//new tcp
+-(void)incomingTCP:(struct tcp_pcb*)pcb;
+//write data to system
+-(void)writeDatagrams:(NSData*)data;
+@end
+const  char* pcbStatus(struct tcp_pcb* pcb);
+void setupStack(id<TCPStackDelegate> object);
 
 
 err_t input(struct pbuf *p);

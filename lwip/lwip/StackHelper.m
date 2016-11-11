@@ -7,7 +7,7 @@
 //
 
 #include "StackHelper.h"
-#import "Stack.h"
+
 #include <pthread.h>
 struct netif netif;
 struct tcp_pcb *listener;
@@ -446,5 +446,9 @@ static void tcp_remove(struct tcp_pcb* pcb_list)
         pcb = pcb->next;
         tcp_abort(pcb2);
     }
+}
+const  char* pcbStatus(struct tcp_pcb* pcb)
+{
+    return tcp_debug_state_str(pcb ->state);
 }
 
