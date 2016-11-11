@@ -154,44 +154,44 @@ static uint64_t htol64 (uint64_t x)
 
 #endif
 
-//static uint8_t ntoh8 (uint8_t x)
-//{
-//    return hton8(x);
-//}
-//
-//static uint16_t ntoh16 (uint16_t x)
-//{
-//    return hton16(x);
-//}
-//
-//static uint32_t ntoh32 (uint32_t x)
-//{
-//    return hton32(x);
-//}
-//
-//static uint64_t ntoh64 (uint64_t x)
-//{
-//    return hton64(x);
-//}
-//
-//static uint8_t ltoh8 (uint8_t x)
-//{
-//    return htol8(x);
-//}
-//
-//static uint16_t ltoh16 (uint16_t x)
-//{
-//    return htol16(x);
-//}
-//
-//static uint32_t ltoh32 (uint32_t x)
-//{
-//    return htol32(x);
-//}
-//
-//static uint64_t ltoh64 (uint64_t x)
-//{
-//    return htol64(x);
-//}
+static uint8_t ntoh8 (uint8_t x)
+{
+    return hton8(x);
+}
+
+static uint16_t ntoh16 (uint16_t x)
+{
+    return hton16(x);
+}
+
+static uint32_t ntoh32 (uint32_t x)
+{
+    return hton32(x);
+}
+
+static uint64_t ntoh64 (uint64_t x)
+{
+    return hton64(x);
+}
+
+static uint8_t ltoh8 (uint8_t x)
+{
+    return htol8(x);
+}
+
+static uint16_t ltoh16 (uint16_t x)
+{
+    return htol16(x);
+}
+
+static uint32_t ltoh32 (uint32_t x)
+{
+    return htol32(x);
+}
+
+static uint64_t ltoh64 (uint64_t x)
+{
+    return htol64(x);
+}
 
 #endif

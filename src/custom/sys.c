@@ -42,6 +42,7 @@ u32_t sys_now (void)
 
     //return btime_gettime();
 }
+/*
 void lwiplog (const char *fmt, ...)
 {
 #ifdef DEBUG
@@ -55,6 +56,7 @@ void lwiplog (const char *fmt, ...)
 #endif
     
 }
+ */
 void lwipassertlog(const char *fmt, ...)
 {
 #ifdef DEBUG
@@ -69,3 +71,4 @@ void lwipassertlog(const char *fmt, ...)
     fprintf(stdout, "%s",content);
 #endif
 }
+ 

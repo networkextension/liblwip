@@ -177,6 +177,8 @@
 		69091D231DD4BEAA0060CCB9 /* test_udp.h in Headers */ = {isa = PBXBuildFile; fileRef = 69091C711DD4BEAA0060CCB9 /* test_udp.h */; };
 		69091D241DD4BEAA0060CCB9 /* UPGRADING in Resources */ = {isa = PBXBuildFile; fileRef = 69091C721DD4BEAA0060CCB9 /* UPGRADING */; };
 		69091D261DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 69091D251DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig */; };
+		692DD5EC1DD5F3CD0079493D /* StackHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 692DD5EA1DD5F3CD0079493D /* StackHelper.m */; };
+		692DD5ED1DD5F3CD0079493D /* StackHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 692DD5EB1DD5F3CD0079493D /* StackHelper.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -361,6 +363,9 @@
 		69091C711DD4BEAA0060CCB9 /* test_udp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test_udp.h; sourceTree = "<group>"; };
 		69091C721DD4BEAA0060CCB9 /* UPGRADING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UPGRADING; sourceTree = "<group>"; };
 		69091D251DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "PacketTunnel-iOS.xcconfig"; sourceTree = "<group>"; };
+		692DD5EA1DD5F3CD0079493D /* StackHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackHelper.m; sourceTree = "<group>"; };
+		692DD5EB1DD5F3CD0079493D /* StackHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackHelper.h; sourceTree = "<group>"; };
+		692DD5F21DD5FC670079493D /* Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +400,9 @@
 			children = (
 				69091BA71DD4BEAA0060CCB9 /* src */,
 				69091B9F1DD4BE910060CCB9 /* lwip.h */,
+				692DD5F21DD5FC670079493D /* Stack.h */,
+				692DD5EA1DD5F3CD0079493D /* StackHelper.m */,
+				692DD5EB1DD5F3CD0079493D /* StackHelper.h */,
 				69091BA01DD4BE910060CCB9 /* Info.plist */,
 				69091D251DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig */,
 			);
@@ -854,6 +862,7 @@
 				69091D1B1DD4BEAA0060CCB9 /* lwipopts.h in Headers */,
 				69091D0B1DD4BEAA0060CCB9 /* udp.h in Headers */,
 				69091CE71DD4BEAA0060CCB9 /* mld6.h in Headers */,
+				692DD5ED1DD5F3CD0079493D /* StackHelper.h in Headers */,
 				69091CFA1DD4BEAA0060CCB9 /* netif.h in Headers */,
 				69091C851DD4BEAA0060CCB9 /* dhcp_proto.h in Headers */,
 				69091CA01DD4BEAA0060CCB9 /* packed.h in Headers */,
@@ -962,6 +971,7 @@
 					69091B9B1DD4BE910060CCB9 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 745WQDK4L7;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1024,6 +1034,7 @@
 				69091CC31DD4BEAA0060CCB9 /* def.c in Sources */,
 				69091CD21DD4BEAA0060CCB9 /* pbuf.c in Sources */,
 				69091CC71DD4BEAA0060CCB9 /* ip4.c in Sources */,
+				692DD5EC1DD5F3CD0079493D /* StackHelper.m in Sources */,
 				69091CD51DD4BEAA0060CCB9 /* tcp_in.c in Sources */,
 				69091CD61DD4BEAA0060CCB9 /* tcp_out.c in Sources */,
 				69091CC81DD4BEAA0060CCB9 /* ip4_addr.c in Sources */,
@@ -1146,6 +1157,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69091D251DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 745WQDK4L7;
@@ -1162,6 +1174,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.ios.lwip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1170,6 +1183,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69091D251DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 745WQDK4L7;
@@ -1209,6 +1223,7 @@
 				69091BA61DD4BE910060CCB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

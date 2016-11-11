@@ -24,6 +24,7 @@ FOUNDATION_EXPORT double lwipVersionNumber;
 FOUNDATION_EXPORT const unsigned char lwipVersionString[];
 
 /* Modules initialization */
+
 void lwip_init(void);
 
 void sys_check_timeouts(void);
@@ -965,5 +966,14 @@ struct netif {
 #endif /* ENABLE_LOOPBACK */
 };
 
+typedef  struct netif  *SFNetIF;
 
+typedef  struct pbuf  *SFPbuf;
+typedef  struct tcp_pcb  *SFPcb;
+typedef  struct udp_pcb  *SFUPcb;
+typedef  struct ip_pcb  SFIP;
+
+#include <lwip/Stack.h>
+
+@end
 #endif /* lwip_h */
