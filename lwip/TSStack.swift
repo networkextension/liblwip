@@ -72,7 +72,7 @@ public final class TSIPStack {
         //fixme
         
         var pcb = tcp_new()
-        var addr = ip_addr_anyForSwift
+         var addr = ip_addr_any
         tcp_bind(pcb, &addr, 0)
         pcb = tcp_listen_with_backlog(pcb, UInt8(TCP_DEFAULT_LISTEN_BACKLOG))
         listenPCB = pcb!

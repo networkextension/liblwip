@@ -537,7 +537,9 @@ typedef enum {
 #define TCP_DEFAULT_LISTEN_BACKLOG      0xff
 #endif
 #define IPADDR_ANY          ((u32_t)0x00000000UL)
-const ip_addr_t ip_addr_anyForSwift = { IPADDR_ANY };
+#define IP_ADDR_BROADCAST   ((ip_addr_t *)&ip_addr_broadcast)
+extern const ip_addr_t ip_addr_any;
+extern const ip_addr_t ip_addr_broadcast;
 typedef enum {
     PBUF_RAM, /* pbuf data is stored in RAM */
     PBUF_ROM, /* pbuf data is stored in ROM */
