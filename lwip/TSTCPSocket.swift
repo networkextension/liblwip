@@ -162,7 +162,7 @@ public final class TSTCPSocket {
         SocketDict.socketDict[identity] = self
         
         tcp_arg(pcb, identityArg)
-        //tcp_recv(pcb, tcp_recv_func)
+        tcp_recv(pcb, tcp_recv_func)
         tcp_sent(pcb, tcp_sent_func)
         tcp_err(pcb, tcp_err_func)
     }

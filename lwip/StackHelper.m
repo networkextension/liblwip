@@ -451,4 +451,47 @@ const  char* pcbStatus(struct tcp_pcb* pcb)
 {
     return tcp_debug_state_str(pcb ->state);
 }
+enum tcp_state  pcbStat(struct tcp_pcb*pcb){
+    return pcb ->state;
+}
 
+int tcp_write_check(SFPcb pcb)
+{
+    //    if (pcb->snd_queuelen != 0) {
+    //        LWIP_ASSERT("tcp_write: pbufs on queue => at least one queue non-empty",
+    //                    pcb->unacked != NULL || pcb->unsent != NULL);
+    //    } else {
+    //        LWIP_ASSERT("tcp_write: no pbufs on queue => both queues empty",
+    //                    pcb->unacked == NULL && pcb->unsent == NULL);
+    //    }
+    if (pcb->state == CLOSE_WAIT) {
+        lwipassertlog("pcb %p state:CLOSE_WAIT",pcb);
+    }
+    if (pcb->snd_queuelen != 0) {
+        int x = pcb->unacked != NULL || pcb->unsent != NULL;
+        if (x == 0){
+            return -2;
+        }
+        //assert();
+    } else {
+        int x = pcb->unacked == NULL && pcb->unsent == NULL;
+        if (x == 0){
+            return -1;
+        }
+        //assert();
+    }
+    
+    return 0;
+}
+
+#include "tcp_impl.h"
+void closeTW(){
+    tcp_remove(tcp_tw_pcbs);
+}
+void closeLWIP()
+{
+    tcp_remove(tcp_bound_pcbs);
+    tcp_remove(tcp_tw_pcbs);
+    //tcp_remove(tcp_active_pcbs);
+    
+}

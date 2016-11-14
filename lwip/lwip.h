@@ -73,18 +73,6 @@ struct tcp_pcb;
  */
 typedef err_t (*tcp_accept_fn)(void *arg, struct tcp_pcb *newpcb, err_t err);
 
-/** Function prototype for tcp receive callback functions. Called when data has
- * been received.
- *
- * @param arg Additional argument to pass to the callback function (@see tcp_arg())
- * @param tpcb The connection pcb which received data
- * @param p The received data (or NULL when the connection has been closed!)
- * @param err An error code if there has been an error receiving
- *            Only return ERR_ABRT if you have called tcp_abort from within the
- *            callback function!
- */
-typedef err_t (*tcp_recv_fn)(void *arg, struct tcp_pcb *tpcb,
-struct pbuf *p, err_t err);
 
 /** Function prototype for tcp sent callback functions. Called when sent data has
  * been acknowledged by the remote side. Use it to free corresponding resources.
@@ -392,6 +380,17 @@ err_t lwip_tcp_event(void *arg, struct tcp_pcb *pcb,
 
 /* Application program's interface: */
 struct tcp_pcb * tcp_new     (void);
+/** Function prototype for tcp receive callback functions. Called when data has
+ * been received.
+ *
+ * @param arg Additional argument to pass to the callback function (@see tcp_arg())
+ * @param tpcb The connection pcb which received data
+ * @param p The received data (or NULL when the connection has been closed!)
+ * @param err An error code if there has been an error receiving
+ *            Only return ERR_ABRT if you have called tcp_abort from within the
+ *            callback function!
+ */
+typedef err_t (*tcp_recv_fn)(void *arg, struct tcp_pcb *tpcb,struct pbuf *p, err_t err);
 
 void             tcp_arg     (struct tcp_pcb *pcb, void *arg);
 void             tcp_accept  (struct tcp_pcb *pcb, tcp_accept_fn accept);
@@ -683,6 +682,58 @@ struct netif {
 
 u8_t pbuf_free(struct pbuf *p);
 u16_t pbuf_copy_partial(struct pbuf *buf, void *dataptr, u16_t len, u16_t offset);
+
+void tcp_recv(struct tcp_pcb *pcb, tcp_recv_fn recv);
+typedef  struct netif  *SFNetIF;
+
+typedef  struct pbuf  *SFPbuf;
+typedef  struct tcp_pcb  *SFPcb;
+typedef  struct udp_pcb  *SFUPcb;
+typedef  struct ip_pcb  SFIP;
+err_t input(struct pbuf *p);
+typedef struct {
+    int type;
+    union {
+        struct {
+            uint32_t ip;
+            uint16_t port;
+        } ipv4;
+        struct {
+            uint8_t ip[16];
+            uint16_t port;
+        } ipv6;
+        struct {
+            uint16_t phys_proto;
+            int interface_index;
+            int header_type;
+            int packet_type;
+            uint8_t phys_addr[8];
+        } packet;
+    };
+} BAddr;
+typedef struct {
+    int type;
+    union {
+        uint32_t ipv4;
+        uint8_t ipv6[16];
+    };
+} BIPAddr;
+void inputData(NSData *data,NSInteger len);
+BAddr baddr_from_lwip (int is_ipv6, const ipX_addr_t *ipx_addr, uint16_t port_hostorder);
+void tcp_accepted_c(struct tcp_pcb *pcb);
+ipX_addr_t local_ip(struct tcp_pcb *pcb);
+BOOL isHTTP(struct tcp_pcb *pcb, uint32_t ip);
+void config_netif(struct netif *netif);
+err_t client_sent_func (void *arg, struct tcp_pcb *tpcb, u16_t len);
+void configClient_sent_func(struct tcp_pcb *tpcb);
+
+uint16_t snd_buf(struct tcp_pcb *pcb);
+static void tcp_remove(struct tcp_pcb* pcb_list);
+void pcbinfo(struct tcp_pcb *pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sport , uint16_t *dport);
+void upcbinfo(struct tcp_pcb *pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sport , uint16_t *dport);
+int tcp_write_check(struct tcp_pcb *pcb);
+void closeLWIP();
+void closeTW();
 @protocol TCPCientDelegate <NSObject>
 
 
@@ -702,6 +753,8 @@ u16_t pbuf_copy_partial(struct pbuf *buf, void *dataptr, u16_t len, u16_t offset
 //write data to system
 -(void)writeDatagrams:(NSData*)data;
 @end
+void config_tcppcb(struct tcp_pcb *pcb, NSObject<TCPCientDelegate> *c);
 const  char* pcbStatus(struct tcp_pcb* pcb);
 void setupStack(id<TCPStackDelegate> object);
+enum tcp_state pcbStat(struct tcp_pcb*pcb);
 #endif /* lwip_h */

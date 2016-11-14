@@ -91,6 +91,7 @@ typedef  struct ip_pcb  SFIP;
 -(void)writeDatagrams:(NSData*)data;
 @end
 const  char* pcbStatus(struct tcp_pcb* pcb);
+enum tcp_state pcbStat(struct tcp_pcb*pcb);
 void setupStack(id<TCPStackDelegate> object);
 
 
