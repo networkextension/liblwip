@@ -23,19 +23,19 @@ class LWIP:NSObject,TCPStackDelegate,TCPCientDelegate  {
         
     }
 
-    public func client_sent_func(_ pcb: UnsafeMutablePointer<tcp_pcb>!){
+    public func client_sent_func(){
         
     }
     
-    public func client_handle_freed_client(_ pcb: UnsafeMutablePointer<tcp_pcb>!){
+    public func client_handle_freed_client(){
         
     }
     
-    public func client_free_client(_ pcb: UnsafeMutablePointer<tcp_pcb>!){
+    public func client_free_client(){
         
     }
     
-    public func incomingData(_ d: Data!, len: Int, pcb: UnsafeMutablePointer<tcp_pcb>!){
+    public func incomingData(_ d: Data!, len: Int){
         
     }
     

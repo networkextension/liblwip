@@ -739,10 +739,10 @@ void closeTW();
 @protocol TCPCientDelegate <NSObject>
 
 
--(void)client_sent_func:(struct tcp_pcb*)pcb;
--(void)client_handle_freed_client:(struct tcp_pcb*)pcb;
--(void)client_free_client:(struct tcp_pcb*)pcb;
--(void)incomingData:(NSData*)d len:(NSInteger)len pcb:(struct tcp_pcb*)pcb;
+-(void)client_sent_func;
+-(void)client_handle_freed_client;
+-(void)client_free_client;
+-(void)incomingData:(NSData*)d len:(NSInteger)len;
 -(void)didSendBufferLen:(NSInteger)buf_used;
 
 @end

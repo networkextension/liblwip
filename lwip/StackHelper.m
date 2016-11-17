@@ -221,7 +221,7 @@ err_t client_sent_func (void *arg, struct tcp_pcb *tpcb, u16_t len)
     if (arg) {
         //int a = CFGetRetainCount(arg);
         client = (__bridge NSObject<TCPCientDelegate> *)(arg);
-        [client client_sent_func:tpcb];
+        [client client_sent_func];
     }
     //int a = CFGetRetainCount((__bridge CFTypeRef)(client));
     return ERR_OK;
@@ -289,7 +289,7 @@ static void client_err_func (void *arg, err_t err)
     //client_log(client, BLOG_INFO, "client error (%d)", (int)err);
     fprintf(stdout,"client_err_func");
     // the pcb was taken care of by the caller
-    [client client_handle_freed_client:nil];
+    [client client_handle_freed_client];
     
 }
 
@@ -314,7 +314,7 @@ static err_t client_recv_func (void *arg, struct tcp_pcb *tpcb, struct pbuf *p, 
     
     if (!p) {
         surfLog("client closed",@__FILE__,__LINE__);
-        [client client_free_client:tpcb];
+        [client client_free_client];
         return ERR_ABRT;
     }
     
@@ -332,7 +332,7 @@ static err_t client_recv_func (void *arg, struct tcp_pcb *tpcb, struct pbuf *p, 
     testLog(@__FILE__, __LINE__, "incoming Data for IP:%s data length %d",dst,p->tot_len);
     if (d.length >0) {
         //DLog(@"data %@",d);
-        [client incomingData:d len:p->tot_len pcb:tpcb];
+        [client incomingData:d len:p->tot_len];
         //[client client_send_to_socks];
     }
     
