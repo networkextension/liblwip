@@ -1,27 +1,21 @@
 //
-//  lwip.h
-//  lwip
+//  lwipOSX.h
+//  lwipOSX
 //
-//  Created by 孔祥波 on 11/10/16.
+//  Created by 孔祥波 on 19/11/2016.
 //  Copyright © 2016 Kong XiangBo. All rights reserved.
 //
 
-
-#ifndef lwip_h
-#define lwip_h
-
-#import <Foundation/Foundation.h>
-#if TARGET_OS_IPHONE
-#import <UIKit/UIKit.h>
-#else
 #import <Cocoa/Cocoa.h>
-#endif
 
-//! Project version number for lwip.
-FOUNDATION_EXPORT double lwipVersionNumber;
+//! Project version number for lwipOSX.
+FOUNDATION_EXPORT double lwipOSXVersionNumber;
 
-//! Project version string for lwip.
-FOUNDATION_EXPORT const unsigned char lwipVersionString[];
+//! Project version string for lwipOSX.
+FOUNDATION_EXPORT const unsigned char lwipOSXVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <lwipOSX/PublicHeader.h>
+
 /* Modules initialization */
 /* Define generic types used in lwIP */
 typedef unsigned   char    u8_t;
@@ -760,4 +754,3 @@ void config_tcppcb(struct tcp_pcb *pcb, NSObject<TCPCientDelegate> *c);
 const  char* pcbStatus(struct tcp_pcb* pcb);
 void setupStack(id<TCPStackDelegate> object);
 enum tcp_state pcbStat(struct tcp_pcb*pcb);
-#endif /* lwip_h */

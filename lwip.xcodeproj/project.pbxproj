@@ -14,6 +14,34 @@
 		692DD6531DD6179C0079493D /* LWIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6521DD6179C0079493D /* LWIP.swift */; };
 		692DD6AC1DD639000079493D /* TSTCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6AB1DD639000079493D /* TSTCPSocket.swift */; };
 		692DD6AE1DD63B220079493D /* TSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6AD1DD63B220079493D /* TSStack.swift */; };
+		69B954991DDF74E0006AF669 /* lwipOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B954971DDF74E0006AF669 /* lwipOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69B9549D1DDF7543006AF669 /* TSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6AD1DD63B220079493D /* TSStack.swift */; };
+		69B9549E1DDF7546006AF669 /* LWIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6521DD6179C0079493D /* LWIP.swift */; };
+		69B9549F1DDF754A006AF669 /* TSTCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6AB1DD639000079493D /* TSTCPSocket.swift */; };
+		69B954A01DDF754E006AF669 /* StackHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 692DD5EA1DD5F3CD0079493D /* StackHelper.m */; };
+		69B954A11DDF7551006AF669 /* StackHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 692DD5EB1DD5F3CD0079493D /* StackHelper.h */; };
+		69B954A21DDF75B1006AF669 /* tcp.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91921DD999D000D51369 /* tcp.c */; };
+		69B954A31DDF75C2006AF669 /* timers.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91951DD999D000D51369 /* timers.c */; };
+		69B954A41DDF75D8006AF669 /* udp.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91961DD999D000D51369 /* udp.c */; };
+		69B954A51DDF75ED006AF669 /* def.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED917F1DD999D000D51369 /* def.c */; };
+		69B954A61DDF75F0006AF669 /* inet_chksum.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91801DD999D000D51369 /* inet_chksum.c */; };
+		69B954A71DDF75F3006AF669 /* init.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91811DD999D000D51369 /* init.c */; };
+		69B954A81DDF75F6006AF669 /* mem.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED918D1DD999D000D51369 /* mem.c */; };
+		69B954A91DDF75FA006AF669 /* memp.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED918E1DD999D000D51369 /* memp.c */; };
+		69B954AA1DDF75FC006AF669 /* netif.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED918F1DD999D000D51369 /* netif.c */; };
+		69B954AB1DDF7600006AF669 /* pbuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91901DD999D000D51369 /* pbuf.c */; };
+		69B954AC1DDF7603006AF669 /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91911DD999D000D51369 /* stats.c */; };
+		69B954AD1DDF7608006AF669 /* tcp_in.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91931DD999D000D51369 /* tcp_in.c */; };
+		69B954AE1DDF760B006AF669 /* tcp_out.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91941DD999D000D51369 /* tcp_out.c */; };
+		69B954AF1DDF761D006AF669 /* icmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91831DD999D000D51369 /* icmp.c */; };
+		69B954B01DDF7620006AF669 /* ip4.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91841DD999D000D51369 /* ip4.c */; };
+		69B954B11DDF7622006AF669 /* ip4_addr.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91851DD999D000D51369 /* ip4_addr.c */; };
+		69B954B21DDF7625006AF669 /* ip_frag.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91861DD999D000D51369 /* ip_frag.c */; };
+		69B954B31DDF762A006AF669 /* icmp6.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91881DD999D000D51369 /* icmp6.c */; };
+		69B954B41DDF762C006AF669 /* ip6.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91891DD999D000D51369 /* ip6.c */; };
+		69B954B51DDF762F006AF669 /* ip6_addr.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED918A1DD999D000D51369 /* ip6_addr.c */; };
+		69B954B61DDF7633006AF669 /* ip6_frag.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED918B1DD999D000D51369 /* ip6_frag.c */; };
+		69B954B71DDF7636006AF669 /* nd6.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED918C1DD999D000D51369 /* nd6.c */; };
 		69ED91F31DD999D000D51369 /* arp_proto.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED912A1DD999D000D51369 /* arp_proto.h */; };
 		69ED91F41DD999D000D51369 /* array_length.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED912B1DD999D000D51369 /* array_length.h */; };
 		69ED91F51DD999D000D51369 /* ascii_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED912C1DD999D000D51369 /* ascii_utils.h */; };
@@ -187,6 +215,9 @@
 		692DD6521DD6179C0079493D /* LWIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWIP.swift; sourceTree = "<group>"; };
 		692DD6AB1DD639000079493D /* TSTCPSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTCPSocket.swift; sourceTree = "<group>"; };
 		692DD6AD1DD63B220079493D /* TSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSStack.swift; sourceTree = "<group>"; };
+		69B954951DDF74E0006AF669 /* lwipOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = lwipOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B954971DDF74E0006AF669 /* lwipOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lwipOSX.h; sourceTree = "<group>"; };
+		69B954981DDF74E0006AF669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69ED912A1DD999D000D51369 /* arp_proto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arp_proto.h; sourceTree = "<group>"; };
 		69ED912B1DD999D000D51369 /* array_length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = array_length.h; sourceTree = "<group>"; };
 		69ED912C1DD999D000D51369 /* ascii_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ascii_utils.h; sourceTree = "<group>"; };
@@ -375,6 +406,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		69B954911DDF74E0006AF669 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -383,6 +421,7 @@
 			children = (
 				69ED91271DD999D000D51369 /* src */,
 				69091B9E1DD4BE910060CCB9 /* lwip */,
+				69B954961DDF74E0006AF669 /* lwipOSX */,
 				69091B9D1DD4BE910060CCB9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -391,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				69091B9C1DD4BE910060CCB9 /* lwip.framework */,
+				69B954951DDF74E0006AF669 /* lwipOSX.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -408,6 +448,15 @@
 				69091D251DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig */,
 			);
 			path = lwip;
+			sourceTree = "<group>";
+		};
+		69B954961DDF74E0006AF669 /* lwipOSX */ = {
+			isa = PBXGroup;
+			children = (
+				69B954971DDF74E0006AF669 /* lwipOSX.h */,
+				69B954981DDF74E0006AF669 /* Info.plist */,
+			);
+			path = lwipOSX;
 			sourceTree = "<group>";
 		};
 		69ED91271DD999D000D51369 /* src */ = {
@@ -932,6 +981,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		69B954921DDF74E0006AF669 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B954991DDF74E0006AF669 /* lwipOSX.h in Headers */,
+				69B954A11DDF7551006AF669 /* StackHelper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -953,6 +1011,24 @@
 			productReference = 69091B9C1DD4BE910060CCB9 /* lwip.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		69B954941DDF74E0006AF669 /* lwipOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69B9549C1DDF74E0006AF669 /* Build configuration list for PBXNativeTarget "lwipOSX" */;
+			buildPhases = (
+				69B954901DDF74E0006AF669 /* Sources */,
+				69B954911DDF74E0006AF669 /* Frameworks */,
+				69B954921DDF74E0006AF669 /* Headers */,
+				69B954931DDF74E0006AF669 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lwipOSX;
+			productName = lwipOSX;
+			productReference = 69B954951DDF74E0006AF669 /* lwipOSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -966,6 +1042,11 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 745WQDK4L7;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					69B954941DDF74E0006AF669 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 745WQDK4L7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -983,6 +1064,7 @@
 			projectRoot = "";
 			targets = (
 				69091B9B1DD4BE910060CCB9 /* lwip */,
+				69B954941DDF74E0006AF669 /* lwipOSX */,
 			);
 		};
 /* End PBXProject section */
@@ -1006,6 +1088,13 @@
 				69091D261DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig in Resources */,
 				69ED92331DD999D000D51369 /* CHANGELOG in Resources */,
 				69ED92341DD999D000D51369 /* CMakeLists.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69B954931DDF74E0006AF669 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,6 +1132,39 @@
 				69ED92481DD999D000D51369 /* ip4_addr.c in Sources */,
 				69ED92511DD999D000D51369 /* netif.c in Sources */,
 				692DD6AE1DD63B220079493D /* TSStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69B954901DDF74E0006AF669 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B954B71DDF7636006AF669 /* nd6.c in Sources */,
+				69B954B01DDF7620006AF669 /* ip4.c in Sources */,
+				69B954A81DDF75F6006AF669 /* mem.c in Sources */,
+				69B954A41DDF75D8006AF669 /* udp.c in Sources */,
+				69B9549D1DDF7543006AF669 /* TSStack.swift in Sources */,
+				69B954A31DDF75C2006AF669 /* timers.c in Sources */,
+				69B954B61DDF7633006AF669 /* ip6_frag.c in Sources */,
+				69B954B21DDF7625006AF669 /* ip_frag.c in Sources */,
+				69B954A21DDF75B1006AF669 /* tcp.c in Sources */,
+				69B9549F1DDF754A006AF669 /* TSTCPSocket.swift in Sources */,
+				69B954AD1DDF7608006AF669 /* tcp_in.c in Sources */,
+				69B954A91DDF75FA006AF669 /* memp.c in Sources */,
+				69B954A71DDF75F3006AF669 /* init.c in Sources */,
+				69B954B11DDF7622006AF669 /* ip4_addr.c in Sources */,
+				69B954A51DDF75ED006AF669 /* def.c in Sources */,
+				69B954A01DDF754E006AF669 /* StackHelper.m in Sources */,
+				69B954AB1DDF7600006AF669 /* pbuf.c in Sources */,
+				69B9549E1DDF7546006AF669 /* LWIP.swift in Sources */,
+				69B954AC1DDF7603006AF669 /* stats.c in Sources */,
+				69B954AE1DDF760B006AF669 /* tcp_out.c in Sources */,
+				69B954A61DDF75F0006AF669 /* inet_chksum.c in Sources */,
+				69B954B31DDF762A006AF669 /* icmp6.c in Sources */,
+				69B954B51DDF762F006AF669 /* ip6_addr.c in Sources */,
+				69B954AF1DDF761D006AF669 /* icmp.c in Sources */,
+				69B954B41DDF762C006AF669 /* ip6.c in Sources */,
+				69B954AA1DDF75FC006AF669 /* netif.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,6 +1327,54 @@
 			};
 			name = Release;
 		};
+		69B9549A1DDF74E0006AF669 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69091D251DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = lwipOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.lwipOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		69B9549B1DDF74E0006AF669 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69091D251DD4BF3D0060CCB9 /* PacketTunnel-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = lwipOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.lwipOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1225,6 +1395,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		69B9549C1DDF74E0006AF669 /* Build configuration list for PBXNativeTarget "lwipOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69B9549A1DDF74E0006AF669 /* Debug */,
+				69B9549B1DDF74E0006AF669 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
