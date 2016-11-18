@@ -1,0 +1,10 @@
+//
+//  Mac.xcconfig
+//  lwip
+//
+//  Created by 孔祥波 on 19/11/2016.
+//  Copyright © 2016 Kong XiangBo. All rights reserved.
+//
+FRAMEWORK_SEARCH_PATHS = $(inherited)
+HEADER_SEARCH_PATHS = $(inherited)    "$(PROJECT_DIR)/src/badvpn" "$(PROJECT_DIR)/src/src/include/"** 
+USER_HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src/src/include/"**  "$(PROJECT_DIR)/src/custom/"** "$(SRCROOT)/../../src/custom/"
