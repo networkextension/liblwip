@@ -96,6 +96,7 @@ void setupStack(id<TCPStackDelegate> object);
 
 
 err_t input(struct pbuf *p);
+void pcbinfo(SFPcb pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sport , uint16_t *dport);
 void inputData(NSData *data,NSInteger len);
 BAddr baddr_from_lwip (int is_ipv6, const ipX_addr_t *ipx_addr, uint16_t port_hostorder);
 void tcp_accepted_c(struct tcp_pcb *pcb);

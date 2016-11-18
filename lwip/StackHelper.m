@@ -495,3 +495,11 @@ void closeLWIP()
     //tcp_remove(tcp_active_pcbs);
     
 }
+void pcbinfo(SFPcb pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sport , uint16_t *dport)
+{
+    *srcip = pcb->local_ip.ip4.addr;
+    *sport = pcb->local_port;
+    
+    *dstip = pcb->remote_ip.ip4.addr;
+    *dport = pcb->remote_port;
+}
