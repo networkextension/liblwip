@@ -32,3 +32,4 @@
 *.dSYM/
 *.su
 UserInterfaceState.xcuserstate
+lwip.xcodeproj/xcuserdata
