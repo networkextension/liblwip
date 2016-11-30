@@ -746,7 +746,7 @@ void closeTW();
 -(void)didSendBufferLen:(NSInteger)buf_used;
 
 @end
-
+void logLWIPParams();
 @protocol TCPStackDelegate <NSObject>
 
 -(void)lwipInitFinish;

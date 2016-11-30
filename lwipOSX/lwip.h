@@ -18,6 +18,10 @@ FOUNDATION_EXPORT const unsigned char lwipOSXVersionString[];
 
 /* Modules initialization */
 /* Define generic types used in lwIP */
+#ifdef TCP_MSS
+#undef TCP_MSS
+#define TCP_MSS 1460
+#endif
 typedef unsigned   char    u8_t;
 typedef signed     char    s8_t;
 typedef unsigned   short   u16_t;

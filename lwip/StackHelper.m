@@ -43,12 +43,12 @@ void logLWIPParams()
 {
 #ifdef DEBUG
     //printf("lwip arguments",@__FILE__, __LINE__);
-    fprintf(stdout,"TCP_MSS: %d",TCP_MSS);
-    fprintf(stdout,"TCP_WND: %d",TCP_WND);
-    fprintf(stdout,"TCP_QUEUE_OOSEQ: %d",TCP_QUEUE_OOSEQ);
-    fprintf(stdout,"TCP_SND_BUF: %d",TCP_SND_BUF);
-    fprintf(stdout,"TCP_SND_QUEUELEN: %d",TCP_SND_QUEUELEN);
-    fprintf(stdout,"TCP_OVERSIZE: %d",TCP_OVERSIZE);
+    fprintf(stdout,"TCP_MSS: %d\n",TCP_MSS);
+    fprintf(stdout,"TCP_WND: %d\n",TCP_WND);
+    fprintf(stdout,"TCP_QUEUE_OOSEQ: %d\n",TCP_QUEUE_OOSEQ);
+    fprintf(stdout,"TCP_SND_BUF: %d\n",TCP_SND_BUF);
+    fprintf(stdout,"TCP_SND_QUEUELEN: %d\n",TCP_SND_QUEUELEN);
+    fprintf(stdout,"TCP_OVERSIZE: %d\n",TCP_OVERSIZE);
 #endif
 }
 void lwiplog (const char *fmt, ...)
