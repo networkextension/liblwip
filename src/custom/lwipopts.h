@@ -89,7 +89,7 @@
 #define MEMP_MEM_MALLOC 1
 //#define MEM_SIZE                        800
 //#define TCP_WND                         0x2400//0xFFFF
-#define TCP_WND                       0x1FA0//  (3 * TCP_MSS)
+#define TCP_WND                       0xFFFF//  (3 * TCP_MSS)
 //#define LWIP_STATS_DISPLAY 1
 
 #ifdef DEBUG
