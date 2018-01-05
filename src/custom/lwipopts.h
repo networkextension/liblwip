@@ -60,7 +60,7 @@
 #define LWIP_IPV6_AUTOCONFIG 0
 #define LWIP_STATS 0
 #define MEMP_NUM_TCP_PCB_LISTEN 1
-#define MEMP_NUM_TCP_PCB 8
+#define MEMP_NUM_TCP_PCB 32
 #ifdef TCP_MSS
 #undef TCP_MSS
 #define TCP_MSS 1460

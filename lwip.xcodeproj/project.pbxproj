@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		69091BA11DD4BE910060CCB9 /* lwip.h in Headers */ = {isa = PBXBuildFile; fileRef = 69091B9F1DD4BE910060CCB9 /* lwip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69091D261DD4BF3D0060CCB9 /* iOS.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 69091D251DD4BF3D0060CCB9 /* iOS.xcconfig */; };
 		6927ADAD1DE14B2B0027EF7A /* lwip.h in Headers */ = {isa = PBXBuildFile; fileRef = 69091B9F1DD4BE910060CCB9 /* lwip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6927ADD01DE14C0F0027EF7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927ADCF1DE14C0F0027EF7A /* AppDelegate.swift */; };
 		6927ADD21DE14C0F0027EF7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927ADD11DE14C0F0027EF7A /* ViewController.swift */; };
@@ -115,22 +114,10 @@
 		69ED92301DD999D000D51369 /* Utf8Encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED91671DD999D000D51369 /* Utf8Encoder.h */; };
 		69ED92311DD999D000D51369 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED91681DD999D000D51369 /* version.h */; };
 		69ED92321DD999D000D51369 /* write_file.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED91691DD999D000D51369 /* write_file.h */; };
-		69ED92331DD999D000D51369 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 69ED916A1DD999D000D51369 /* CHANGELOG */; };
-		69ED92341DD999D000D51369 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69ED916B1DD999D000D51369 /* CMakeLists.txt */; };
-		69ED92351DD999D000D51369 /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 69ED916C1DD999D000D51369 /* COPYING */; };
 		69ED92361DD999D000D51369 /* cc.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED916F1DD999D000D51369 /* cc.h */; };
 		69ED92371DD999D000D51369 /* perf.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED91701DD999D000D51369 /* perf.h */; };
 		69ED92381DD999D000D51369 /* lwipopts.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED91711DD999D000D51369 /* lwipopts.h */; };
 		69ED92391DD999D000D51369 /* sys.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91721DD999D000D51369 /* sys.c */; };
-		69ED923A1DD999D000D51369 /* contrib.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69ED91741DD999D000D51369 /* contrib.txt */; };
-		69ED923B1DD999D000D51369 /* FILES in Resources */ = {isa = PBXBuildFile; fileRef = 69ED91751DD999D000D51369 /* FILES */; };
-		69ED923C1DD999D000D51369 /* rawapi.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69ED91761DD999D000D51369 /* rawapi.txt */; };
-		69ED923D1DD999D000D51369 /* savannah.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69ED91771DD999D000D51369 /* savannah.txt */; };
-		69ED923E1DD999D000D51369 /* snmp_agent.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69ED91781DD999D000D51369 /* snmp_agent.txt */; };
-		69ED923F1DD999D000D51369 /* sys_arch.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69ED91791DD999D000D51369 /* sys_arch.txt */; };
-		69ED92401DD999D000D51369 /* FILES in Resources */ = {isa = PBXBuildFile; fileRef = 69ED917A1DD999D000D51369 /* FILES */; };
-		69ED92411DD999D000D51369 /* lwip-base-version in Resources */ = {isa = PBXBuildFile; fileRef = 69ED917B1DD999D000D51369 /* lwip-base-version */; };
-		69ED92421DD999D000D51369 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 69ED917C1DD999D000D51369 /* README */; };
 		69ED92431DD999D000D51369 /* def.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED917F1DD999D000D51369 /* def.c */; };
 		69ED92441DD999D000D51369 /* inet_chksum.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91801DD999D000D51369 /* inet_chksum.c */; };
 		69ED92451DD999D000D51369 /* init.c in Sources */ = {isa = PBXBuildFile; fileRef = 69ED91811DD999D000D51369 /* init.c */; };
@@ -211,7 +198,6 @@
 		69ED92901DD999D000D51369 /* socket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED91D71DD999D000D51369 /* socket.h */; };
 		69ED92991DD999D000D51369 /* lwip_check.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED91E51DD999D000D51369 /* lwip_check.h */; };
 		69ED929B1DD999D000D51369 /* lwipopts.h in Headers */ = {isa = PBXBuildFile; fileRef = 69ED91E71DD999D000D51369 /* lwipopts.h */; };
-		69ED92A41DD999D000D51369 /* UPGRADING in Resources */ = {isa = PBXBuildFile; fileRef = 69ED91F21DD999D000D51369 /* UPGRADING */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1095,14 +1081,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Kong XiangBo";
 				TargetAttributes = {
 					69091B9B1DD4BE910060CCB9 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 745WQDK4L7;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					6927ADCC1DE14C0F0027EF7A = {
 						CreatedOnToolsVersion = 8.2;
@@ -1111,6 +1096,7 @@
 					};
 					69B954941DDF74E0006AF669 = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -1140,20 +1126,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69ED92421DD999D000D51369 /* README in Resources */,
-				69ED92411DD999D000D51369 /* lwip-base-version in Resources */,
-				69ED92401DD999D000D51369 /* FILES in Resources */,
-				69ED923F1DD999D000D51369 /* sys_arch.txt in Resources */,
-				69ED923B1DD999D000D51369 /* FILES in Resources */,
-				69ED923C1DD999D000D51369 /* rawapi.txt in Resources */,
-				69ED923D1DD999D000D51369 /* savannah.txt in Resources */,
-				69ED923A1DD999D000D51369 /* contrib.txt in Resources */,
-				69ED92A41DD999D000D51369 /* UPGRADING in Resources */,
-				69ED923E1DD999D000D51369 /* snmp_agent.txt in Resources */,
-				69ED92351DD999D000D51369 /* COPYING in Resources */,
-				69091D261DD4BF3D0060CCB9 /* iOS.xcconfig in Resources */,
-				69ED92331DD999D000D51369 /* CHANGELOG in Resources */,
-				69ED92341DD999D000D51369 /* CMakeLists.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1276,7 +1248,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1284,7 +1258,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1330,7 +1308,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1338,7 +1318,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1372,10 +1356,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69091D251DD4BF3D0060CCB9 /* iOS.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 745WQDK4L7;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1393,6 +1379,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.ios.lwip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1405,10 +1392,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69091D251DD4BF3D0060CCB9 /* iOS.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 745WQDK4L7;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1422,6 +1411,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.ios.lwip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
@@ -1467,7 +1457,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69B954B81DDF7718006AF669 /* Mac.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -1490,9 +1482,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.lwip;
 				PRODUCT_NAME = lwip;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(PROJECT_DIR)/src/src/include/\" \"$(PROJECT_DIR)/src/custom/\"** \"$(SRCROOT)/../../src/custom/\"";
 			};
 			name = Debug;
@@ -1501,7 +1495,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69B954B81DDF7718006AF669 /* Mac.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -1520,9 +1516,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.lwip;
 				PRODUCT_NAME = lwip;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(PROJECT_DIR)/src/src/include/\" \"$(PROJECT_DIR)/src/custom/\"** \"$(SRCROOT)/../../src/custom/\"";
 			};
 			name = Release;
@@ -1555,6 +1553,7 @@
 				6927ADDB1DE14C0F0027EF7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69B9549C1DDF74E0006AF669 /* Build configuration list for PBXNativeTarget "lwipOSX" */ = {
 			isa = XCConfigurationList;
