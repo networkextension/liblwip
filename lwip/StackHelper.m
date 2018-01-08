@@ -21,7 +21,7 @@ static err_t netif_output_func (struct netif *netif, struct pbuf *p, ip_addr_t *
 static void client_err_func (void *arg, err_t err);
 static err_t client_recv_func (void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err);
 
-extern void lwip_init();
+extern void lwip_init(void);
 #ifdef DEBUG
 #   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 //NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
@@ -38,6 +38,13 @@ void setupStack(id<TCPStackDelegate> object)
     stack = object;
     init_lwip();
     [stack lwipInitFinish];
+}
+
+void setupStackWithFin(id<TCPStackDelegate> object,lwipInitComplete complete){
+    logLWIPParams();
+    stack = object;
+    init_lwip();
+    complete();
 }
 void logLWIPParams()
 {

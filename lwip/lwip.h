@@ -760,4 +760,7 @@ void config_tcppcb(struct tcp_pcb *pcb, NSObject<TCPCientDelegate> *c);
 const  char* pcbStatus(struct tcp_pcb* pcb);
 void setupStack(id<TCPStackDelegate> object);
 enum tcp_state pcbStat(struct tcp_pcb*pcb);
+
+typedef void (^lwipInitComplete)(void);
+void setupStackWithFin(id<TCPStackDelegate> object,lwipInitComplete complete);
 #endif /* lwip_h */
