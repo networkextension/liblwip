@@ -751,7 +751,7 @@ void closeTW();
 -(void)incomingData:(NSData*)d len:(NSInteger)len;
 @end
 extern void tcp_tmr();
-void config_tcppcb(struct tcp_pcb *pcb, NSObject<TCPCientDelegate> *c);
+void config_tcppcb(struct tcp_pcb *pcb, void *c);
 const  char* pcbStatus(struct tcp_pcb* pcb);
 void setupStack(id<TCPStackDelegate> object);
 enum tcp_state pcbStat(struct tcp_pcb*pcb);
