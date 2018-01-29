@@ -734,16 +734,7 @@ void upcbinfo(struct tcp_pcb *pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sp
 int tcp_write_check(struct tcp_pcb *pcb);
 void closeLWIP();
 void closeTW();
-@protocol TCPCientDelegate <NSObject>
 
-
--(void)client_sent_func;
--(void)client_handle_freed_client;
--(void)client_free_client;
--(void)incomingData:(NSData*)d len:(NSInteger)len;
--(void)didSendBufferLen:(NSInteger)buf_used;
-
-@end
 
 @protocol TCPStackDelegate <NSObject>
 
@@ -752,6 +743,12 @@ void closeTW();
 -(void)incomingTCP:(struct tcp_pcb*)pcb;
 //write data to system
 -(void)writeDatagrams:(NSData*)data;
+
+
+-(void)client_sent_func;
+-(void)client_handle_freed_client;
+-(void)client_free_client;
+-(void)incomingData:(NSData*)d len:(NSInteger)len;
 @end
 extern void tcp_tmr();
 void config_tcppcb(struct tcp_pcb *pcb, NSObject<TCPCientDelegate> *c);

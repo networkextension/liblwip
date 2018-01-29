@@ -32,13 +32,6 @@ extern void lwip_init(void);
 //#   define SLog(...)
 #endif
 NSObject<TCPStackDelegate> *stack;
-void setupStack(id<TCPStackDelegate> object)
-{
-    logLWIPParams();
-    stack = object;
-    init_lwip();
-    [stack lwipInitFinish];
-}
 
 void setupStackWithFin(id<TCPStackDelegate> object,lwipInitComplete complete){
     logLWIPParams();
@@ -221,16 +214,9 @@ static err_t listener_accept_func (void *arg, struct tcp_pcb *newpcb, err_t err)
 }
 err_t client_sent_func (void *arg, struct tcp_pcb *tpcb, u16_t len)
 {
-    NSObject<TCPCientDelegate>  *client ;
-    if (arg == nil) {
-        fprintf(stdout,"pcb arg nil warning");
-    }
-    if (arg) {
-        //int a = CFGetRetainCount(arg);
-        client = (__bridge NSObject<TCPCientDelegate> *)(arg);
-        [client client_sent_func];
-    }
-    //int a = CFGetRetainCount((__bridge CFTypeRef)(client));
+
+    [stack client_sent_func:arg];
+    
     return ERR_OK;
 }
 void configClient_sent_func(struct tcp_pcb *tpcb)
@@ -270,11 +256,11 @@ static err_t netif_output_func (struct netif *netif, struct pbuf *p, ip_addr_t *
     return ERR_OK;
 }
 
-void config_tcppcb(struct tcp_pcb*pcb, NSObject<TCPCientDelegate> *c)
+void config_tcppcb(struct tcp_pcb*pcb, void *client)
 {
     tcp_nagle_disable(pcb);
     //tcp_nagle_enable(pcb);
-    tcp_arg(pcb, (__bridge void *)(c));
+    tcp_arg(pcb, client);
     tcp_err(pcb, client_err_func);
     tcp_recv(pcb, client_recv_func);
     
@@ -282,16 +268,8 @@ void config_tcppcb(struct tcp_pcb*pcb, NSObject<TCPCientDelegate> *c)
 
 static void client_err_func (void *arg, err_t err)
 {
-    NSObject<TCPCientDelegate>  *client ;
-    if (arg) {
-        client = (__bridge NSObject<TCPCientDelegate> *)(arg);
-    }
-    //ASSERT(!client.client_closed)
-    
-    //client_log(client, BLOG_INFO, "client error (%d)", (int)err);
-    fprintf(stdout,"client_err_func");
-    // the pcb was taken care of by the caller
-    [client client_handle_freed_client];
+  
+    [stack client_handle_freed_client:arg error:err];
     
 }
 
@@ -300,23 +278,17 @@ static void client_err_func (void *arg, err_t err)
 
 static err_t client_recv_func (void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
 {
-    //    if (p == NULL) {
-    //        return ERR_OK;
-    //    }
-     NSObject<TCPCientDelegate>   *client ;
-    if (arg) {
-        client = (__bridge  NSObject<TCPCientDelegate>  *)(arg);
-    }else {
-        surfLog("client_recv_func client == nil",@__FILE__,__LINE__);
-    }
-    
+  
+  
+   
     
     ASSERT(err == ERR_OK) // checked in lwIP source. Otherwise, I've no idea what should
     // be done with the pbuf in case of an error.
     
     if (!p) {
         surfLog("client closed",@__FILE__,__LINE__);
-        [client client_free_client];
+       
+        [stack client_free_client:arg];
         return ERR_ABRT;
     }
     
@@ -326,16 +298,15 @@ static err_t client_recv_func (void *arg, struct tcp_pcb *tpcb, struct pbuf *p, 
     
     unsigned char buffer[p->tot_len];
     ASSERT_EXECUTE(pbuf_copy_partial(p, (void *)buffer, p->tot_len, 0) == p->tot_len)
-    //client.buf_used += p->tot_len;
+
     NSData *d = [NSData dataWithBytes:buffer length:p->tot_len];
-    char dst[16];
     
-    //int2ip(tpcb->local_ip.ip4.addr,dst);
-    testLog(@__FILE__, __LINE__, "incoming Data for IP:%s data length %d",dst,p->tot_len);
+    
+  
+    
     if (d.length >0) {
-        //DLog(@"data %@",d);
-        [client incomingData:d len:p->tot_len];
-        //[client client_send_to_socks];
+        [stack incomingData:d len:p->tot_len client:arg];
+       
     }
     
     // free pbuff

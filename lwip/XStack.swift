@@ -10,7 +10,7 @@ import Foundation
 public typealias Xpcb  = UnsafeMutablePointer<tcp_pcb>!
 public protocol  XStackDelegate:class{
     func incomingNewSocket(_ s:LSocket)
-    func  writeDatagrams(_ data: Data!,protocols:Int32)
+    func writeDatagrams(_ data: Data!,protocols:Int32)
 }
 public class XStack:NSObject{
     static let stack = XStack()
@@ -22,15 +22,32 @@ public class XStack:NSObject{
     
     //call back inited
     public func configLWIP(_ finish: @escaping (() ->Void)){
-        configed = true
+        
         setupStackWithFin(self, finish)
+        configed = true
     }
     
 }
 extension XStack:TCPStackDelegate  {
-    public func lwipInitFinish() {
+    public func client_sent_func(_ client: UnsafeMutableRawPointer!) {
         
     }
+    
+    public func client_handle_freed_client(_ client: UnsafeMutableRawPointer!, error err: Int32) {
+        
+    }
+    
+    public func client_free_client(_ client: UnsafeMutableRawPointer!) {
+        
+    }
+    
+    public func incomingData(_ d: Data!, len: Int, client: UnsafeMutableRawPointer!) {
+        
+    }
+    
+  
+    
+    
     
     public func incomingTCP(_ pcb: Xpcb) {
         let s = LSocket.init(pcb: pcb)

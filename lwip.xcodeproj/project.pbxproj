@@ -14,14 +14,12 @@
 		6927ADD41DE14C0F0027EF7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6927ADD31DE14C0F0027EF7A /* Assets.xcassets */; };
 		6927ADD71DE14C0F0027EF7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6927ADD51DE14C0F0027EF7A /* Main.storyboard */; };
 		6927ADDC1DE14C1C0027EF7A /* lwip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954951DDF74E0006AF669 /* lwip.framework */; };
-		6927ADDD1DE14CF40027EF7A /* TSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6AD1DD63B220079493D /* TSStack.swift */; };
 		6927ADDE1DE14CF70027EF7A /* LSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6521DD6179C0079493D /* LSocket.swift */; };
 		6927ADDF1DE14CFB0027EF7A /* TSTCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6AB1DD639000079493D /* TSTCPSocket.swift */; };
 		692DD5EC1DD5F3CD0079493D /* StackHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 692DD5EA1DD5F3CD0079493D /* StackHelper.m */; };
 		692DD5ED1DD5F3CD0079493D /* StackHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 692DD5EB1DD5F3CD0079493D /* StackHelper.h */; };
 		692DD6531DD6179C0079493D /* LSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6521DD6179C0079493D /* LSocket.swift */; };
 		692DD6AC1DD639000079493D /* TSTCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6AB1DD639000079493D /* TSTCPSocket.swift */; };
-		692DD6AE1DD63B220079493D /* TSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DD6AD1DD63B220079493D /* TSStack.swift */; };
 		6974B5DD20021DB400925831 /* XStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6974B5DC20021DB400925831 /* XStack.swift */; };
 		6974B5DE20021DB400925831 /* XStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6974B5DC20021DB400925831 /* XStack.swift */; };
 		69B954A01DDF754E006AF669 /* StackHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 692DD5EA1DD5F3CD0079493D /* StackHelper.m */; };
@@ -217,7 +215,6 @@
 		692DD5EB1DD5F3CD0079493D /* StackHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackHelper.h; sourceTree = "<group>"; };
 		692DD6521DD6179C0079493D /* LSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSocket.swift; sourceTree = "<group>"; };
 		692DD6AB1DD639000079493D /* TSTCPSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTCPSocket.swift; sourceTree = "<group>"; };
-		692DD6AD1DD63B220079493D /* TSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSStack.swift; sourceTree = "<group>"; };
 		6974B5DC20021DB400925831 /* XStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XStack.swift; sourceTree = "<group>"; };
 		69B954951DDF74E0006AF669 /* lwip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = lwip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B954971DDF74E0006AF669 /* lwip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lwip.h; sourceTree = "<group>"; };
@@ -454,7 +451,6 @@
 			isa = PBXGroup;
 			children = (
 				69091B9F1DD4BE910060CCB9 /* lwip.h */,
-				692DD6AD1DD63B220079493D /* TSStack.swift */,
 				692DD6521DD6179C0079493D /* LSocket.swift */,
 				6974B5DC20021DB400925831 /* XStack.swift */,
 				692DD6AB1DD639000079493D /* TSTCPSocket.swift */,
@@ -1183,7 +1179,6 @@
 				69ED924B1DD999D000D51369 /* ip6.c in Sources */,
 				69ED92481DD999D000D51369 /* ip4_addr.c in Sources */,
 				69ED92511DD999D000D51369 /* netif.c in Sources */,
-				692DD6AE1DD63B220079493D /* TSStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1225,7 +1220,6 @@
 				69B954AF1DDF761D006AF669 /* icmp.c in Sources */,
 				69B954B41DDF762C006AF669 /* ip6.c in Sources */,
 				69B954AA1DDF75FC006AF669 /* netif.c in Sources */,
-				6927ADDD1DE14CF40027EF7A /* TSStack.swift in Sources */,
 				6927ADDF1DE14CFB0027EF7A /* TSTCPSocket.swift in Sources */,
 				6927ADDE1DE14CF70027EF7A /* LSocket.swift in Sources */,
 			);

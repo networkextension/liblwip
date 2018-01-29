@@ -73,24 +73,20 @@ typedef  struct udp_pcb  *SFUPcb;
 typedef  struct ip_pcb  SFIP;
 
 
-@protocol TCPCientDelegate <NSObject>
-
-
-
--(void)client_sent_func;
--(void)client_handle_freed_client;
--(void)client_free_client;
--(void)incomingData:(NSData*)d len:(NSInteger)len ;
--(void)didSendBufferLen:(NSInteger)buf_used ;
-@end
 
 @protocol TCPStackDelegate <NSObject>
 
--(void)lwipInitFinish;
 //new tcp
 -(void)incomingTCP:(struct tcp_pcb*)pcb;
 //write data to system
 -(void)writeDatagrams:(NSData*)data;
+//raw tcp socket callback api
+//socket-->TCPStackDelegate->Swift Class
+-(void)client_sent_func:(void *)client;
+-(void)client_handle_freed_client:(void *)client error:(int)err;
+-(void)client_free_client:(void *)client;
+-(void)incomingData:(NSData*)d len:(NSInteger)len client:(void *)client;
+
 @end
     //block style
 typedef void (^lwipInitComplete)(void);
@@ -111,7 +107,7 @@ BOOL isHTTP(struct tcp_pcb *pcb, uint32_t ip);
 void config_netif(struct netif *netif);
 err_t client_sent_func (void *arg, struct tcp_pcb *tpcb, u16_t len);
 void configClient_sent_func(struct tcp_pcb *tpcb);
-void config_tcppcb(struct tcp_pcb *pcb, NSObject<TCPCientDelegate> *c);
+void config_tcppcb(struct tcp_pcb *pcb, void *client);
 uint16_t snd_buf(struct tcp_pcb *pcb);
 static void tcp_remove(struct tcp_pcb* pcb_list);
 void pcbinfo(struct tcp_pcb *pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sport , uint16_t *dport);

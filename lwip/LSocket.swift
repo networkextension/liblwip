@@ -21,7 +21,7 @@ public class LSocket:NSObject{
 }
 
 
-extension LSocket:TCPCientDelegate  {
+extension LSocket  {
     public func client_sent_func() {
         
     }
