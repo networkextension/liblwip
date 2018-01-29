@@ -1086,7 +1086,7 @@
 				TargetAttributes = {
 					69091B9B1DD4BE910060CCB9 = {
 						CreatedOnToolsVersion = 8.2;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 					};
 					6927ADCC1DE14C0F0027EF7A = {
@@ -1383,7 +1383,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/src/src/include/\"** \"$(SRCROOT)/src/custom/\"";
 			};
 			name = Debug;
@@ -1414,7 +1415,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/src/src/include/\"** \"$(SRCROOT)/src/custom/\"";
 			};
 			name = Release;
