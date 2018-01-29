@@ -61,8 +61,8 @@ typedef struct {
     };
 } BIPAddr;
 
-void logLWIPParams();
-void init_lwip();
+void logLWIPParams(void);
+void init_lwip(void);
 
 
 typedef  struct netif  *SFNetIF;
@@ -72,7 +72,9 @@ typedef  struct tcp_pcb  *SFPcb;
 typedef  struct udp_pcb  *SFUPcb;
 typedef  struct ip_pcb  SFIP;
 
+
 @protocol TCPCientDelegate <NSObject>
+
 
 
 -(void)client_sent_func;
@@ -90,6 +92,10 @@ typedef  struct ip_pcb  SFIP;
 //write data to system
 -(void)writeDatagrams:(NSData*)data;
 @end
+    //block style
+typedef void (^lwipInitComplete)(void);
+void setupStackWithFin(id<TCPStackDelegate> object,lwipInitComplete complete);
+
 const  char* pcbStatus(struct tcp_pcb* pcb);
 enum tcp_state pcbStat(struct tcp_pcb*pcb);
 void setupStack(id<TCPStackDelegate> object);
@@ -111,6 +117,6 @@ static void tcp_remove(struct tcp_pcb* pcb_list);
 void pcbinfo(struct tcp_pcb *pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sport , uint16_t *dport);
 void upcbinfo(struct tcp_pcb *pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sport , uint16_t *dport);
 int tcp_write_check(struct tcp_pcb *pcb);
-void closeLWIP();
-void closeTW();
+void closeLWIP(void);
+void closeTW(void);
 #endif /* StackHelper_h */
