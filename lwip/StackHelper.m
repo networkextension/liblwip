@@ -233,17 +233,13 @@ void configClient_sent_func(struct tcp_pcb *tpcb)
 
 
 static err_t netif_output_func (struct netif *netif, struct pbuf *p, ip_addr_t *ipaddr)
-{//这个方法是把数据写给tunnel provider
+{   //这个方法是把数据写给tunnel provider
     // badvpn use SYNC_DECL write to tun device
     if (!p->next) {
         void *payload = p->payload;
         
         NSData *data =[NSData dataWithBytes:payload length:p->len];
-        if (data.length == 40) {
-            //surfLog("netif_output_func tcp head",@__FILE__,__LINE__);
-        }else {
-            //testLog(@__FILE__,__LINE__,"netif_output_func length: %lu" ,data.length);
-        }
+       
         if (data.length > 0 ){
             [stack writeDatagrams:data];
         }
@@ -251,7 +247,6 @@ static err_t netif_output_func (struct netif *netif, struct pbuf *p, ip_addr_t *
     }else{
         
         NSMutableData *data = [NSMutableData data];
-        //NSMutableArray *packets = [NSMutableArray array];
         do {
             void *payload = p->payload;
             //NSMutableData *data = [NSMutableData dataWithBytes:payload length:p->len];
@@ -457,13 +452,6 @@ enum tcp_state  pcbStat(struct tcp_pcb*pcb){
 
 int tcp_write_check(SFPcb pcb)
 {
-    //    if (pcb->snd_queuelen != 0) {
-    //        LWIP_ASSERT("tcp_write: pbufs on queue => at least one queue non-empty",
-    //                    pcb->unacked != NULL || pcb->unsent != NULL);
-    //    } else {
-    //        LWIP_ASSERT("tcp_write: no pbufs on queue => both queues empty",
-    //                    pcb->unacked == NULL && pcb->unsent == NULL);
-    //    }
     if (pcb->state == CLOSE_WAIT) {
         lwipassertlog("pcb %p state:CLOSE_WAIT",pcb);
     }
@@ -478,7 +466,7 @@ int tcp_write_check(SFPcb pcb)
         if (x == 0){
             return -1;
         }
-        //assert();
+        
     }
     
     return 0;

@@ -31,6 +31,11 @@
 #define LWIP_CUSTOM_LWIPOPTS_H
 
 #define NO_SYS 1
+/**
+ * MEM_ALIGNMENT: should be set to the alignment of the CPU
+ *    4 byte alignment -> #define MEM_ALIGNMENT 4
+ *    2 byte alignment -> #define MEM_ALIGNMENT 2
+ */
 #define MEM_ALIGNMENT 4
 
 
@@ -59,8 +64,12 @@
 #define LWIP_IPV6_MLD 0
 #define LWIP_IPV6_AUTOCONFIG 0
 #define LWIP_STATS 0
-#define MEMP_NUM_TCP_PCB_LISTEN 1
-#define MEMP_NUM_TCP_PCB 32
+#define MEMP_NUM_TCP_PCB_LISTEN 8
+/**
+ * MEMP_NUM_TCP_PCB: the number of simulatenously active TCP connections.
+ * (requires the LWIP_TCP option)
+ */
+#define MEMP_NUM_TCP_PCB 64
 #ifdef TCP_MSS
 #undef TCP_MSS
 #define TCP_MSS 1460
@@ -68,8 +77,18 @@
 #define LWIP_CHECKSUM_ON_COPY 1
 
 
+/**
+ * MEM_SIZE: the size of the heap memory. If the application will send
+ * a lot of data that needs to be copied, this should be set high.
+ */
 // MEM
-#define MEM_SIZE                        (1024 * 1024 * 1) /* 1MiB */
+#define MEM_SIZE                       512000// (1024 * 1024 * 1) /* 1MiB */
+/**
+ * MEMP_NUM_PBUF: the number of memp struct pbufs (used for PBUF_ROM and PBUF_REF).
+ * If the application sends a lot of data out of ROM (or other static memory),
+ * this should be set high.
+ */
+
 #define MEMP_NUM_PBUF 16
 #define MEMP_NUM_RAW_PCB 64
 //#define MEMP_NUM_TCP_PCB 64
@@ -88,8 +107,9 @@
 #define MEM_LIBC_MALLOC 1
 #define MEMP_MEM_MALLOC 1
 //#define MEM_SIZE                        800
-//#define TCP_WND                         0x2400//0xFFFF
-#define TCP_WND                       0xFFFF//  (3 * TCP_MSS)
+//#define TCP_WND                         0x1FA0//0xFFFF ////2400//
+//太大容易导致no sent callback
+#define TCP_WND                       0x1FA0//0xFFFF//  (3 * TCP_MSS)
 //#define LWIP_STATS_DISPLAY 1
 
 #ifdef DEBUG
