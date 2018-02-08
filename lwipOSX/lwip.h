@@ -749,6 +749,7 @@ void closeTW();
 -(void)client_handle_freed_client;
 -(void)client_free_client;
 -(void)incomingData:(NSData*)d len:(NSInteger)len;
+-(void)client_poll:(void*)client;
 @end
 extern void tcp_tmr();
 void config_tcppcb(struct tcp_pcb *pcb, void *c);

@@ -750,7 +750,7 @@ void logLWIPParams();
 -(void)client_handle_freed_client:(void *)client error:(int)err;
 -(void)client_free_client:(void *)client;
 -(void)incomingData:(NSData*)d len:(NSInteger)len client:(void *)client;
-
+-(void)client_poll:(void*)client;
 @end
 extern void tcp_tmr();
 void config_tcppcb(struct tcp_pcb *pcb, void *c);

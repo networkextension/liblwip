@@ -113,7 +113,7 @@
 //#define LWIP_STATS_DISPLAY 1
 
 #ifdef DEBUG
-//#define LWIP_DEBUG 
+#define LWIP_DEBUG 
 //#endif
 //#ifdef LWIP_DEBUG
 #define MEM_DEBUG                       LWIP_DBG_ON

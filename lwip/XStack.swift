@@ -29,6 +29,10 @@ public class XStack:NSObject{
     
 }
 extension XStack:TCPStackDelegate  {
+    public func client_poll(_ client: UnsafeMutableRawPointer!) {
+        
+    }
+    
     public func client_sent_func(_ client: UnsafeMutableRawPointer!) {
         
     }

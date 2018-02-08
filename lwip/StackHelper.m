@@ -255,7 +255,12 @@ static err_t netif_output_func (struct netif *netif, struct pbuf *p, ip_addr_t *
     //return common_netif_output(netif, p);
     return ERR_OK;
 }
-
+//(void *arg, struct tcp_pcb *tpcb)
+static err_t client_poll(void *arg,struct tcp_pcb *tpcb)
+{
+    [stack client_poll:arg];
+    return ERR_OK;
+}
 void config_tcppcb(struct tcp_pcb*pcb, void *client)
 {
     tcp_nagle_disable(pcb);
@@ -263,7 +268,7 @@ void config_tcppcb(struct tcp_pcb*pcb, void *client)
     tcp_arg(pcb, client);
     tcp_err(pcb, client_err_func);
     tcp_recv(pcb, client_recv_func);
-    
+    tcp_poll(pcb, client_poll, 1);
 }
 
 static void client_err_func (void *arg, err_t err)
