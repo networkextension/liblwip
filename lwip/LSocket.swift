@@ -28,6 +28,17 @@ public class LSocket:NSObject{
     func test(){
         
     }
+    
+    func sendFunc() ->tcp_sent_fn{
+        return { arg,pcb ,len in
+            guard let arg = arg else {return Int8(ERR_ARG) }
+            let unmanaged:Unmanaged<LSocket>  =   Unmanaged.fromOpaque(arg)
+            
+            let client:LSocket = unmanaged.takeUnretainedValue()
+            client.test()
+            return Int8(ERR_OK)
+        }
+    }
     func errorFunc() ->tcp_err_fn {
         return { arg,err in
             guard let arg = arg else {return  }
