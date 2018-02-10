@@ -14,12 +14,8 @@ struct tcp_pcb *listener;
 // mananger tcp stack
 static err_t netif_init_func (struct netif *netif);
 static err_t netif_input_func (struct pbuf *p, struct netif *inp);
-static err_t listener_accept_func (void *arg, struct tcp_pcb *newpcb, err_t err);
-static err_t netif_output_func (struct netif *netif, struct pbuf *p, ip_addr_t *ipaddr);
 
-// client need
-static void client_err_func (void *arg, err_t err);
-static err_t client_recv_func (void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err);
+
 
 extern void lwip_init(void);
 #ifdef DEBUG
@@ -31,14 +27,8 @@ extern void lwip_init(void);
 //#   define DLog(...)
 //#   define SLog(...)
 #endif
-NSObject<TCPStackDelegate> *stack;
 
-void setupStackWithFin(id<TCPStackDelegate> object,lwipInitComplete complete){
-    logLWIPParams();
-    stack = object;
-    init_lwip();
-    complete();
-}
+
 void logLWIPParams()
 {
 #ifdef DEBUG
@@ -85,7 +75,7 @@ void surfLog(char *string,NSString *file,NSInteger line)
    // [AxLogger log:[NSString stringWithFormat:@"%s",string] level:AxLoggerLevelInfo category:@"cfunc" file:file line:line ud:@{@"test":@"test"} tags:@[@"test"] time:[NSDate date]];
 #endif
 }
-void init_lwip()
+struct tcp_pcb *init_lwip(netif_output_fn output,netif_input_fn input)
 {
     
     lwip_init();
@@ -97,11 +87,11 @@ void init_lwip()
     ip_addr_set_any(&gw);
     logLWIPParams();
     // init netif
-    if (!netif_add(&netif, &addr, &netmask, &gw, NULL, netif_init_func, netif_input_func)) {
+    if (!netif_add(&netif, &addr, &netmask, &gw, NULL, netif_init_func, input)) {
         surfLog("netif_add failed",@__FILE__, __LINE__);
         
     }
-    
+    netif.output = output;
     netif_set_up(&netif);
     // set netif pretend TCP
     netif_set_pretend_tcp(&netif, 1);
@@ -133,8 +123,9 @@ void init_lwip()
     }
     //printf("################################ 12skfjksdjfklsj");
     // setup listener accept handler
-    tcp_accept(listener, listener_accept_func);
-    testLog(@__FILE__, __LINE__,"tcp_accept %p",listener_accept_func);
+    //tcp_accept(listener, listener_accept_func);
+    //testLog(@__FILE__, __LINE__,"tcp_accept %p",listener_accept_func);
+    return  listener;
 }
 
 static err_t netif_init_func (struct netif *netif)
@@ -143,7 +134,7 @@ static err_t netif_init_func (struct netif *netif)
     
     netif->name[0] = 'h';
     netif->name[1] = 'o';
-    netif->output = netif_output_func;
+    
     //netif->output_ip6 = netif_output_ip6_func;
     
     return ERR_OK;
@@ -197,70 +188,13 @@ void inputData(NSData *data,NSInteger len)
     
     
 }
-static err_t listener_accept_func (void *arg, struct tcp_pcb *newpcb, err_t err)
-{
-    tcp_accepted(listener);
-    DLog(@"listener_accept_func");
-    //    BAddr local_addr = baddr_from_lwip(PCB_ISIPV6(newpcb), &newpcb->local_ip, newpcb->local_port);
-    //
-    //    BAddr remote_addr = baddr_from_lwip(PCB_ISIPV6(newpcb), &newpcb->remote_ip, newpcb->remote_port);
-    //DLog(@"local_addr %@,remote_addr %@",toString(local_addr.ipv4.ip),toString(remote_addr.ipv4.ip));
-    [stack incomingTCP:newpcb];
-    //fixme
-    //SFTCPConnectionManager.shared;
-    //testLog(@__FILE__,__LINE__,"process tcp_pcb:%p arg:%@",newpcb,arg);
-    
-    return ERR_OK;
-}
-err_t client_sent_func (void *arg, struct tcp_pcb *tpcb, u16_t len)
-{
-
-    [stack client_sent_func:arg];
-    
-    return ERR_OK;
-}
-void configClient_sent_func(struct tcp_pcb *tpcb)
-{
-    tcp_sent(tpcb, client_sent_func);
-}
 
 
-static err_t netif_output_func (struct netif *netif, struct pbuf *p, ip_addr_t *ipaddr)
-{   //这个方法是把数据写给tunnel provider
-    // badvpn use SYNC_DECL write to tun device
-    if (!p->next) {
-        void *payload = p->payload;
-        
-        NSData *data =[NSData dataWithBytes:payload length:p->len];
-       
-        if (data.length > 0 ){
-            [stack writeDatagrams:data];
-        }
-        
-    }else{
-        
-        NSMutableData *data = [NSMutableData data];
-        do {
-            void *payload = p->payload;
-            //NSMutableData *data = [NSMutableData dataWithBytes:payload length:p->len];
-            //[packets addObject:data];
-            [data appendBytes:payload length:p->len];
-        }while ((p = p->next));
-        if (data.length > 0 ){
-            [stack writeDatagrams:data];
-        }
-        
-    }
-    
-    //return common_netif_output(netif, p);
-    return ERR_OK;
-}
+
+
+
 //(void *arg, struct tcp_pcb *tpcb)
-static err_t client_poll(void *arg,struct tcp_pcb *tpcb)
-{
-    [stack client_poll:arg];
-    return ERR_OK;
-}
+
 void nagle_disable(struct tcp_pcb*pcb){
     tcp_nagle_disable(pcb);
 }
@@ -269,59 +203,15 @@ void config_tcppcb(struct tcp_pcb*pcb, void *client)
     tcp_nagle_disable(pcb);
     //tcp_nagle_enable(pcb);
     tcp_arg(pcb, client);
-    tcp_err(pcb, client_err_func);
-    tcp_recv(pcb, client_recv_func);
-    tcp_poll(pcb, client_poll, 1);
-}
 
-static void client_err_func (void *arg, err_t err)
-{
-  
-    [stack client_handle_freed_client:arg error:err];
     
 }
 
 
 
 
-static err_t client_recv_func (void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
-{
-  
-  
-   
-    
-    ASSERT(err == ERR_OK) // checked in lwIP source. Otherwise, I've no idea what should
-    // be done with the pbuf in case of an error.
-    
-    if (!p) {
-        surfLog("client closed",@__FILE__,__LINE__);
-       
-        [stack client_free_client:arg];
-        return ERR_ABRT;
-    }
-    
-    ASSERT(p->tot_len > 0)
-    
-    
-    
-    unsigned char buffer[p->tot_len];
-    ASSERT_EXECUTE(pbuf_copy_partial(p, (void *)buffer, p->tot_len, 0) == p->tot_len)
 
-    NSData *d = [NSData dataWithBytes:buffer length:p->tot_len];
-    
-    
-  
-    
-    if (d.length >0) {
-        [stack incomingData:d len:p->tot_len client:arg];
-       
-    }
-    
-    // free pbuff
-    pbuf_free(p);
-    //client release
-    return ERR_OK;
-}
+
 
 #pragma mark -
 #pragma makr lwip micro

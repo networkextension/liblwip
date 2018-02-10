@@ -62,8 +62,8 @@ typedef struct {
 } BIPAddr;
 
 void logLWIPParams(void);
-void init_lwip(void);
 
+struct tcp_pcb *init_lwip(netif_output_fn output,netif_input_fn input);
 
 typedef  struct netif  *SFNetIF;
 
@@ -74,27 +74,12 @@ typedef  struct ip_pcb  SFIP;
 
 
 
-@protocol TCPStackDelegate <NSObject>
 
-//new tcp
--(void)incomingTCP:(struct tcp_pcb*)pcb;
-//write data to system
--(void)writeDatagrams:(NSData*)data;
-//raw tcp socket callback api
-//socket-->TCPStackDelegate->Swift Class
--(void)client_sent_func:(void *)client;
--(void)client_handle_freed_client:(void *)client error:(int)err;
--(void)client_free_client:(void *)client;
--(void)incomingData:(NSData*)d len:(NSInteger)len client:(void *)client;
--(void)client_poll:(void*)client;
-@end
     //block style
 typedef void (^lwipInitComplete)(void);
-void setupStackWithFin(id<TCPStackDelegate> object,lwipInitComplete complete);
 
 const  char* pcbStatus(struct tcp_pcb* pcb);
 enum tcp_state pcbStat(struct tcp_pcb*pcb);
-void setupStack(id<TCPStackDelegate> object);
 
 void nagle_disable(struct tcp_pcb*pcb);
 err_t input(struct pbuf *p);

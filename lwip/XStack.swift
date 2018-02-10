@@ -23,12 +23,12 @@ public class XStack:NSObject{
     //call back inited
     public func configLWIP(_ finish: @escaping (() ->Void)){
         
-        setupStackWithFin(self, finish)
+       
         configed = true
     }
     
 }
-extension XStack:TCPStackDelegate  {
+extension XStack  {
     public func client_poll(_ client: UnsafeMutableRawPointer!) {
         
     }

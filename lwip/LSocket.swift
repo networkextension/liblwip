@@ -86,10 +86,7 @@ extension LSocket  {
         
     }
     
-    public func didSendBufferLen(_ buf_used: Int) {
-        
-    }
-    
+   
     
     
 }

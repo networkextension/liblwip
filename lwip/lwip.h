@@ -549,8 +549,7 @@ typedef enum {
 struct pbuf *
 pbuf_alloc(pbuf_layer layer, u16_t length, pbuf_type type);
 void tcp_accepted_c(struct tcp_pcb *pcb);
-void
-lwip_init(void);
+struct tcp_pcb *init_lwip(netif_output_fn output,netif_input_fn input);
 /** Generic data structure used for all lwIP network interfaces.
  *  The following fields should be filled in by the initialization
  *  function for the device driver: hwaddr_len, hwaddr[], mtu, flags */
@@ -738,27 +737,17 @@ void closeLWIP();
 void closeTW();
 
 void logLWIPParams();
-@protocol TCPStackDelegate <NSObject>
 
 
-//new tcp
--(void)incomingTCP:(struct tcp_pcb*)pcb;
-//write data to system
--(void)writeDatagrams:(NSData*)data;
-
--(void)client_sent_func:(void *)client;
--(void)client_handle_freed_client:(void *)client error:(int)err;
--(void)client_free_client:(void *)client;
--(void)incomingData:(NSData*)d len:(NSInteger)len client:(void *)client;
--(void)client_poll:(void*)client;
-@end
 extern void tcp_tmr();
 void config_tcppcb(struct tcp_pcb *pcb, void *c);
 const  char* pcbStatus(struct tcp_pcb* pcb);
-void setupStack(id<TCPStackDelegate> object);
+
 enum tcp_state pcbStat(struct tcp_pcb*pcb);
 
 typedef void (^lwipInitComplete)(void);
-void setupStackWithFin(id<TCPStackDelegate> object,lwipInitComplete complete);
+
 void nagle_disable(struct tcp_pcb*pcb);
+err_t
+ip_input(struct pbuf *p, struct netif *inp);
 #endif /* lwip_h */
