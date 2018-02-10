@@ -17,7 +17,44 @@ public class LSocket:NSObject{
         //autocall?
         super.init()
     }
-    
+    func configCallBack(){
+        let client = Unmanaged.passUnretained(self).toOpaque()
+        
+        tcp_arg(pcb, client)
+        tcp_err(pcb, errorFunc())
+        tcp_recv(pcb, recvFunc())
+        tcp_poll(pcb, pollFunc(), 1)
+    }
+    func test(){
+        
+    }
+    func errorFunc() ->tcp_err_fn {
+        return { arg,err in
+            guard let arg = arg else {return  }
+            let unmanaged:Unmanaged<LSocket>  =   Unmanaged.fromOpaque(arg)
+            let client:LSocket = unmanaged.takeUnretainedValue()
+            client.test()
+            
+        }
+    }
+    func recvFunc() ->tcp_recv_fn {
+        return { arg,pcb,buffer,err  in
+            guard let arg = arg else {return Int8(ERR_ARG) }
+            let unmanaged:Unmanaged<LSocket>  =   Unmanaged.fromOpaque(arg)
+            let client:LSocket = unmanaged.takeUnretainedValue()
+            client.test()
+            return Int8(ERR_OK)
+        }
+    }
+    func pollFunc() -> tcp_poll_fn {
+        return { arg ,pcb in
+            guard let arg = arg else {return Int8(ERR_ARG)}
+            let unmanaged:Unmanaged<LSocket>  =   Unmanaged.fromOpaque(arg)
+            let client:LSocket = unmanaged.takeUnretainedValue()
+            client.test()
+            return Int8(ERR_OK)
+        }
+    }
 }
 
 

@@ -760,4 +760,5 @@ enum tcp_state pcbStat(struct tcp_pcb*pcb);
 
 typedef void (^lwipInitComplete)(void);
 void setupStackWithFin(id<TCPStackDelegate> object,lwipInitComplete complete);
+void nagle_disable(struct tcp_pcb*pcb);
 #endif /* lwip_h */

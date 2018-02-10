@@ -756,3 +756,4 @@ void config_tcppcb(struct tcp_pcb *pcb, void *c);
 const  char* pcbStatus(struct tcp_pcb* pcb);
 void setupStack(id<TCPStackDelegate> object);
 enum tcp_state pcbStat(struct tcp_pcb*pcb);
+void nagle_disable(struct tcp_pcb*pcb);

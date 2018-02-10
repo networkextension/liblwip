@@ -261,6 +261,9 @@ static err_t client_poll(void *arg,struct tcp_pcb *tpcb)
     [stack client_poll:arg];
     return ERR_OK;
 }
+void nagle_disable(struct tcp_pcb*pcb){
+    tcp_nagle_disable(pcb);
+}
 void config_tcppcb(struct tcp_pcb*pcb, void *client)
 {
     tcp_nagle_disable(pcb);

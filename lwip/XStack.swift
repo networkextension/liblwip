@@ -49,9 +49,6 @@ extension XStack:TCPStackDelegate  {
         
     }
     
-  
-    
-    
     
     public func incomingTCP(_ pcb: Xpcb) {
         let s = LSocket.init(pcb: pcb)
@@ -61,6 +58,8 @@ extension XStack:TCPStackDelegate  {
     public func writeDatagrams(_ data: Data!) {
         self.delegate?.writeDatagrams(data, protocols: AF_INET)
     }
+    
+    
     
     
     

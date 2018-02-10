@@ -96,7 +96,7 @@ const  char* pcbStatus(struct tcp_pcb* pcb);
 enum tcp_state pcbStat(struct tcp_pcb*pcb);
 void setupStack(id<TCPStackDelegate> object);
 
-
+void nagle_disable(struct tcp_pcb*pcb);
 err_t input(struct pbuf *p);
 void pcbinfo(SFPcb pcb, uint32_t *srcip,uint32_t *dstip, uint16_t *sport , uint16_t *dport);
 void inputData(NSData *data,NSInteger len);
